@@ -1,8 +1,11 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Todo List App
+The Todo List App is a simple web application built with React that allows users to manage their tasks efficiently. Users can add, edit, and delete tasks and mark them as completed or incomplete. Each task also includes a priority level (low, medium, high) indicated by different colors.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
+Add new tasks: Users can add new tasks to the list by providing a title and selecting a priority level.
+Edit tasks: Users can edit existing tasks to update their titles and priority levels.
+Delete tasks: Users can delete tasks from the list.
+Mark tasks as completed: Users can mark tasks as completed or incomplete.
+Task list display: Tasks are displayed in an organized manner showing their titles, statuses (completed or not completed), and priority levels.
+Filter tasks: Users can filter tasks based on their priority levels.
