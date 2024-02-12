@@ -4,6 +4,27 @@
   padding: 2rem;
   text-align: center;
 }
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  margin-left: 5px;
+}
 
 .logo {
   height: 6em;
