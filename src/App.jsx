@@ -1,35 +1,58 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+const App = () => {
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState("");
+  const [priority, setPriority] = useState("low");
+  const [editingTask, setEditingTask] = useState(null);
 
-function App() {
-  const [count, setCount] = useState(0);
+  const addTask = () => {
+    if (newTask.trim() === "") return;
+    const newTasks = [
+      ...tasks,
+      {
+        id: Date.now(),
+        title: newTask,
+        completed: false,
+        priority,
+      },
+    ];
+    setTasks(newTasks);
+    setNewTask("");
+    setPriority("low");
+  };
+
+  const updateTask = () => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === editingTask.id ? { ...task, title: newTask, priority } : task
+    );
+    setTasks(updatedTasks);
+    setEditingTask(null);
+    setNewTask("");
+    setPriority("low");
+  };
 
   return (
-    <>
+    <div className="App">
+      <h1>Todo List</h1>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <label htmlFor="newTask">New Task:</label>
+        <input
+          type="text"
+          id="newTask"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+        />
+        <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <button onClick={addTask}>Add Task</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
-}
+};
 
 export default App;
